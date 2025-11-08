@@ -73,7 +73,7 @@
 
 
 GPSDriverFemto::GPSDriverFemto(GPSCallbackPtr callback, void *callback_user,
-			       struct sensor_gps_s *gps_position,
+			       struct vehicle_gps_position_s *gps_position,
 			       satellite_info_s *satellite_info,
 			       float heading_offset) :
 	GPSBaseStationSupport(callback, callback_user),

@@ -59,7 +59,7 @@ public:
 	 * @param heading_offset heading offset in radians [-pi, pi]. It is substracted from the measurement.
 	 */
 	GPSDriverNMEA(GPSCallbackPtr callback, void *callback_user,
-		      sensor_gps_s *gps_position,
+		      vehicle_gps_position_s *gps_position,
 		      satellite_info_s *satellite_info,
 		      float heading_offset = 0.f);
 
@@ -90,7 +90,7 @@ private:
 	double read_float();
 	char read_char();
 
-	sensor_gps_s *_gps_position {nullptr};
+	vehicle_gps_position_s *_gps_position {nullptr};
 	satellite_info_s *_satellite_info {nullptr};
 	double _last_POS_timeUTC{0};
 	double _last_VEL_timeUTC{0};

@@ -52,7 +52,7 @@ public:
 	/**
 	 * @param heading_offset heading offset in radians [-pi, pi]. It is substracted from the measurement.
 	 */
-	GPSDriverAshtech(GPSCallbackPtr callback, void *callback_user, sensor_gps_s *gps_position,
+	GPSDriverAshtech(GPSCallbackPtr callback, void *callback_user, vehicle_gps_position_s *gps_position,
 			 satellite_info_s *satellite_info, float heading_offset = 0.f);
 
 	virtual ~GPSDriverAshtech();
@@ -131,7 +131,7 @@ private:
 
 	gps_abstime _survey_in_start{0};
 
-	sensor_gps_s *_gps_position {nullptr};
+	vehicle_gps_position_s *_gps_position {nullptr};
 
 	satellite_info_s *_satellite_info {nullptr};
 

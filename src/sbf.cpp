@@ -63,7 +63,7 @@
 #define SBF_WARN(...)        {GPS_WARN(__VA_ARGS__);}
 #define SBF_DEBUG(...)       {/*GPS_WARN(__VA_ARGS__);*/}
 
-GPSDriverSBF::GPSDriverSBF(GPSCallbackPtr callback, void *callback_user, struct sensor_gps_s *gps_position,
+GPSDriverSBF::GPSDriverSBF(GPSCallbackPtr callback, void *callback_user, struct vehicle_gps_position_s *gps_position,
 			   satellite_info_s *satellite_info, float heading_offset, float pitch_offset)
 	: GPSBaseStationSupport(callback, callback_user), _gps_position(gps_position), _satellite_info(satellite_info),
 	  _heading_offset(heading_offset), _pitch_offset(pitch_offset)

@@ -63,7 +63,7 @@
 #define NMEA_DEBUG(...)        {/*GPS_WARN(__VA_ARGS__);*/}
 
 GPSDriverNMEA::GPSDriverNMEA(GPSCallbackPtr callback, void *callback_user,
-			     sensor_gps_s *gps_position,
+			     vehicle_gps_position_s *gps_position,
 			     satellite_info_s *satellite_info,
 			     float heading_offset) :
 	GPSHelper(callback, callback_user),

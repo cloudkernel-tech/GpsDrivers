@@ -992,7 +992,7 @@ public:
 	};
 
 	GPSDriverUBX(Interface gpsInterface, GPSCallbackPtr callback, void *callback_user,
-		     sensor_gps_s *gps_position, satellite_info_s *satellite_info,
+		     vehicle_gps_position_s *gps_position, satellite_info_s *satellite_info,
 		     uint8_t dynamic_model = 7,
 		     float heading_offset = 0.f,
 		     int32_t uart2_baudrate = 57600,
@@ -1151,7 +1151,7 @@ private:
 	const Interface _interface{};
 
 	gps_abstime             _disable_cmd_last{0};
-	sensor_gps_s           *_gps_position {nullptr};
+	vehicle_gps_position_s           *_gps_position {nullptr};
 	satellite_info_s       *_satellite_info {nullptr};
 	ubx_ack_state_t         _ack_state{UBX_ACK_IDLE};
 	ubx_buf_t               _buf{};

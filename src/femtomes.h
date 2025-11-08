@@ -162,7 +162,7 @@ public:
 	/**
 	 * @param heading_offset heading offset in radians [-pi, pi]. It is substracted from the measurement.
 	 */
-	GPSDriverFemto(GPSCallbackPtr callback, void *callback_user, struct sensor_gps_s *gps_position,
+	GPSDriverFemto(GPSCallbackPtr callback, void *callback_user, struct vehicle_gps_position_s *gps_position,
 		       satellite_info_s *satellite_info = nullptr,
 		       float heading_offset = 0.f);
 	virtual ~GPSDriverFemto();
@@ -215,7 +215,7 @@ private:
 				      double longitude = (double)NAN, float altitude = NAN);
 
 
-	struct sensor_gps_s 	*_gps_position {nullptr};
+	struct vehicle_gps_position_s 	*_gps_position {nullptr};
 	FemtoDecodeState		_decode_state{FemtoDecodeState::pream_ble1};
 	femto_uav_gps_t			_femto_uav_gps;
 	femto_msg_t 			_femto_msg;
