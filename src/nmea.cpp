@@ -350,7 +350,26 @@ int GPSDriverNMEA::handleMessage(int len)
 
 		_gps_position->c_variance_rad = 0.1f;
 
-	} else if (memcmp(_rx_buffer + 3, "HDT,", 4) == 0 && fieldCount == 2) {
+    } else if (memcmp(_rx_buffer + 3, "THS,", 4) == 0 && fieldCount == 2) {
+        /*
+        Heading message (NMEA V4.10)
+        Example $GNTHS,341.3344,A*1F
+
+        f1 Last computed heading value, in degrees (0-359.99)
+        Mode A,E,M,S,V
+        *xx  checksum
+         */
+
+        float heading_deg = 0.f;
+
+        if (bufptr && *(++bufptr) != ',') {
+            heading_deg = strtof(bufptr, &endp); bufptr = endp;
+            handleHeading(heading_deg, NAN);
+        }
+
+        _HEAD_received = true;
+
+    } else if (memcmp(_rx_buffer + 3, "HDT,", 4) == 0 && fieldCount == 2) {
 		/*
 		Heading message
 		Example $GPHDT,121.2,T*35
