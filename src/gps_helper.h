@@ -205,6 +205,7 @@ public:
 		GNSSSystemsMask gnss_systems;
 		InterfaceProtocolsMask interface_protocols;
 		bool cfg_wipe;
+        uint8_t dev_option;
 	};
 
 

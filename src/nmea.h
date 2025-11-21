@@ -83,7 +83,14 @@ private:
 	};
 
 	void decodeInit(void);
-	int handleMessage(int len);
+
+    int handleMessage(int len);
+
+    //handle message with NMEA 4.44 protocol
+    int handleMessage_NMEA_0(int len);
+    //handle message with NMEA 4.10 protocol
+    int handleMessage_NMEA_1(int len);
+
 	int parseChar(uint8_t b);
 
 	int32_t read_int();
@@ -124,6 +131,7 @@ private:
 	uint16_t _rx_buffer_bytes{0};
 
 	OutputMode _output_mode{OutputMode::GPS};
+    uint8_t _dev_option{0};
 
 	RTCMParsing *_rtcm_parsing{nullptr};
 
